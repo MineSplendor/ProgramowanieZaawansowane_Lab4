@@ -1,0 +1,34 @@
+﻿@page
+@model AdvancedProgramming_Lesson4.Pages.HistoryModel
+@using Microsoft.Extensions.Logging;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "History";
+}
+
+<h1>Message History</h1><br />
+
+
+<table class="table">
+    <!-- <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatMessage[0].Message)
+            </th>
+        </tr>
+    </thead> -->
+    <tbody>
+@foreach (var item in Model.ChatMessage) {
+    @if (item.User == @User.Identity.Name) {
+        <tr>     
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+        </tr> 
+    }
+}
+        <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    </tbody>
+</table>

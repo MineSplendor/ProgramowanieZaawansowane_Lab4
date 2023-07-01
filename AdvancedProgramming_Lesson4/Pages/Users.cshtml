@@ -1,0 +1,36 @@
+﻿@page
+@using Microsoft.Data.SqlClient;
+@model AdvancedProgramming_Lesson4.Pages.UsersModel
+
+@{
+    ViewData["Title"] = "Users";
+    
+   
+}
+
+<h1>Registered Users</h1><br />
+
+<table class="table">
+    <!-- <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUsers[0].UserName)
+            </th>
+            <th></th>
+        </tr>
+    </thead> -->
+    <tbody>
+        @foreach (var item in Model.AspNetUsers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+            </tr>
+        }
+        <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    </tbody>
+</table>
+
+
+
